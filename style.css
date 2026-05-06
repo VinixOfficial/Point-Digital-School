@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
+:root {
+    --primary: #00f3ff;
+    --secondary: #ff00ff;
+    --accent: #fcee0a;
+    --bg: #05050a;
+    --card-bg: rgba(255, 255, 255, 0.03);
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Фон космоса */
+.space-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #05050a 100%);
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+}
+
+/* Навигация */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0; z-index: 100;
+}
+
+.nav-logo { height: 40px; filter: drop-shadow(0 0 5px var(--primary)); }
+.nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; }
+
+/* Обложка */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.cyber-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 10px;
+    margin: 0;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.5));
+}
+
+.main-cta {
+    background: #fcee0a; /* Желтый киберпанк */
+    color: #000;
+    padding: 15px 40px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.main-cta:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fcee0a;
+    background: #00f3ff; /* Меняет цвет на голубой при наведении */
+}
+
+/* Карточки */
+.container { padding: 80px 5%; }
+.section-title { font-family: 'Orbitron', sans-serif; text-align: center; margin-bottom: 50px; }
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.cyber-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    padding: 30px;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--primary);
+}
+
+.cyber-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--primary);
+    transform: translateY(-10px);
+}
+
+.card-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card-btn:hover { background: var(--primary); color: #000; }
+
+/* Оплата (для страниц курсов) */
+.pay-options { display: flex; flex-direction: column; gap: 10px; }
+.pay-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.pay-btn img { height: 20px; } /* Логотипы теперь маленькие */
+.payme { background: #00b9e0; }
+.click { background: #0055a5; }
+.tg-btn {
+    background: transparent;
+    border: 1px solid var(--primary) !important;
+    padding: 8px 20px;
+    border-radius: 5px;
+    color: var(--primary) !important;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.tg-btn:hover {
+    background: var(--primary);
+    color: #000 !important;
+    box-shadow: 0 0 15px var(--primary);
+}
+.pay-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin: 20px 0;
+}
+
+.pay-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.pay-item img {
+    height: 22px; /* Фиксированный размер, чтобы не было "уродско" */
+}
+
+.payme { background: #00b9e0; color: #fff; }
+.click { background: #0055a5; color: #fff; }
+
+.pay-item:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0,0,0,0.5);
+}
+
+.back-btn {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.mini-logo {
+    height: 30px; /* Делаем логотип аккуратным, а не на пол-экрана */
+    width: auto;
+}
+
+/* Стили модалки из прошлого сообщения... */
